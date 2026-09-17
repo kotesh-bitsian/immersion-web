@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImmersionX — Global immersion programs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,600;10..48,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1F2B;
+  --ink-soft:#1B3242;
+  --paper:#EDF0F2;
+  --paper-warm:#DFE5E6;
+  --marigold:#E8A33D;
+  --teal:#157F6D;
+  --rule:rgba(14,31,43,.16);
+  --rule-dark:rgba(237,240,242,.18);
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:17px;line-height:1.6;
+}
+h1,h2,h3,.dsp{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.02;margin:0}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:40;background:rgba(237,240,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.mark{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.03em;margin-right:auto}
+.mark span{color:var(--teal)}
+.nav a.lnk{font-family:var(--display);font-weight:600;font-size:14px;text-decoration:none;opacity:.72}
+.nav a.lnk:hover{opacity:1}
+.btn{
+  display:inline-block;font-family:var(--display);font-weight:600;font-size:15px;
+  background:var(--ink);color:var(--paper);text-decoration:none;
+  padding:11px 20px;border-radius:2px;border:0;cursor:pointer;
+}
+.btn:hover{background:var(--ink-soft)}
+.btn.gold{background:var(--marigold);color:var(--ink)}
+.btn.gold:hover{background:#d4912f}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:rgba(14,31,43,.06)}
+:focus-visible{outline:3px solid var(--marigold);outline-offset:3px}
+.nav .btn{font-size:14px;padding:9px 16px}
+@media(max-width:760px){.nav a.lnk{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:var(--paper);padding:88px 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:end}
+.hero h1{font-size:clamp(42px,6.4vw,82px);text-wrap:balance}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.lede{font-size:20px;line-height:1.5;margin:26px 0 30px;color:rgba(237,240,242,.8);max-width:46ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:80px}
+.cta-note{font-size:14px;color:rgba(237,240,242,.55);font-family:var(--display)}
+.hero-panel{border:1px solid var(--rule-dark);border-bottom:0;padding:26px 24px 28px;background:rgba(237,240,242,.04)}
+.hero-panel dt{font-family:var(--display);font-size:12.5px;font-weight:600;color:rgba(237,240,242,.55);margin-bottom:2px}
+.hero-panel dd{margin:0 0 18px;font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.02em}
+.hero-panel dd:last-of-type{margin-bottom:0}
+.hero-panel dd small{font-family:var(--serif);font-weight:400;font-size:14px;letter-spacing:0;color:rgba(237,240,242,.6);display:block;margin-top:3px}
+.wk-cycle{display:inline-block;transition:opacity .3s ease;min-width:1.6em}
+.reveal{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards}
+.reveal:nth-child(2){animation-delay:.1s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+@media(max-width:900px){
+  .hero{padding-top:56px}
+  .hero .wrap{grid-template-columns:1fr;gap:34px}
+  .cta-row{margin-bottom:34px}
+  .hero-panel{border-bottom:1px solid var(--rule-dark)}
+}
+
+/* ---------- section scaffolding ---------- */
+.sec{padding:96px 0;border-top:1px solid var(--rule)}
+.sec-head{max-width:64ch;margin-bottom:44px}
+.sec-head h2{font-size:clamp(30px,3.6vw,44px);margin-bottom:14px}
+.sec-head p{color:rgba(14,31,43,.72);font-size:18px}
+@media(max-width:760px){.sec{padding:64px 0}}
+
+/* ---------- departures board ---------- */
+.board{border-top:1.5px solid var(--ink)}
+.row{
+  display:grid;grid-template-columns:2.1fr 1.5fr 1fr .9fr auto;
+  gap:24px;align-items:baseline;
+  padding:26px 4px;border-bottom:1px solid var(--rule);
+}
+.row-h{padding:10px 4px;border-bottom:1px solid var(--rule)}
+.row-h span{font-family:var(--display);font-size:12.5px;font-weight:600;color:rgba(14,31,43,.5)}
+.pname{font-family:var(--display);font-weight:800;font-size:23px;letter-spacing:-.02em}
+.pdesc{font-size:15px;color:rgba(14,31,43,.7);margin:5px 0 0;max-width:34ch}
+.cell{font-family:var(--display);font-weight:600;font-size:15px}
+.cell small{display:block;font-family:var(--serif);font-weight:400;font-size:13.5px;color:rgba(14,31,43,.6);margin-top:3px}
+.seats{font-family:var(--display);font-weight:600;font-size:14px;color:var(--teal)}
+.seats.low{color:#B4501E}
+.row .btn{font-size:14px;padding:9px 16px;white-space:nowrap}
+@media(max-width:900px){
+  .row{grid-template-columns:1fr 1fr;gap:10px 20px;padding:22px 4px}
+  .row-h{display:none}
+  .row>.pblock{grid-column:1/-1}
+  .row>.btn{grid-column:1/-1;justify-self:start;margin-top:6px}
+}
+
+/* ---------- ROI ---------- */
+.roi{background:var(--ink);color:var(--paper);border-top:0}
+.roi .sec-head p{color:rgba(237,240,242,.75)}
+.calc{display:grid;grid-template-columns:.95fr 1.05fr;gap:0;border:1px solid var(--rule-dark)}
+.calc-in{padding:34px 32px;border-right:1px solid var(--rule-dark)}
+.calc-out{padding:34px 32px;background:rgba(237,240,242,.05)}
+.field{margin-bottom:26px}
+.field:last-child{margin-bottom:0}
+.field label{display:block;font-family:var(--display);font-weight:600;font-size:14.5px;margin-bottom:9px}
+.field .hint{font-family:var(--serif);font-weight:400;font-size:13.5px;color:rgba(237,240,242,.55);display:block;margin-top:5px}
+input[type=range]{width:100%;accent-color:var(--marigold);height:26px}
+.val{font-family:var(--display);font-weight:800;font-size:19px;color:var(--marigold)}
+.out-big{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,62px);letter-spacing:-.03em;line-height:1}
+.out-lbl{font-family:var(--display);font-weight:600;font-size:14.5px;color:rgba(237,240,242,.6);margin-bottom:6px}
+.out-block{padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--rule-dark)}
+.out-block:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
+.out-mid{font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.02em}
+.disclaimer{font-size:13.5px;color:rgba(237,240,242,.5);max-width:70ch;margin:20px 0 0}
+.expert-note{margin-top:36px;padding-top:26px;border-top:1px solid var(--rule-dark);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.expert-note p{margin:0;font-size:15.5px;color:rgba(237,240,242,.8);max-width:54ch}
+.expert-note strong{font-family:var(--display);font-weight:600;color:var(--paper)}
+.expert-note .btn{flex-shrink:0}
+@media(max-width:600px){.expert-note{flex-direction:column;align-items:flex-start}}
+@media(max-width:820px){
+  .calc{grid-template-columns:1fr}
+  .calc-in{border-right:0;border-bottom:1px solid var(--rule-dark)}
+}
+
+/* ---------- certificates ---------- */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:0;border-left:1px solid var(--rule)}
+.cert{padding:28px 26px;border-right:1px solid var(--rule);border-top:1.5px solid var(--ink)}
+.cert .inst{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em;margin-bottom:8px}
+.cert .what{font-size:14.5px;color:rgba(14,31,43,.72);margin:0}
+.cert .place{font-family:var(--display);font-size:13px;font-weight:600;color:var(--teal);margin-top:12px}
+.slot{background:repeating-linear-gradient(-45deg,transparent,transparent 9px,rgba(14,31,43,.05) 9px,rgba(14,31,43,.05) 18px)}
+.slot .inst{color:rgba(14,31,43,.45)}
+
+/* ---------- process (real sequence, so numbered) ---------- */
+.steps{border-top:1.5px solid var(--ink)}
+.step{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:24px 4px;border-bottom:1px solid var(--rule);align-items:start}
+.step .n{font-family:var(--display);font-weight:800;font-size:15px;color:var(--marigold);padding-top:4px}
+.step h3{font-size:20px;margin-bottom:5px}
+.step p{margin:0;font-size:15.5px;color:rgba(14,31,43,.72)}
+
+/* ---------- voices ---------- */
+.voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:34px}
+.voice blockquote{margin:0 0 14px;font-size:19px;line-height:1.48;font-style:italic}
+.voice cite{font-family:var(--display);font-style:normal;font-weight:600;font-size:14.5px}
+.voice cite small{display:block;font-family:var(--serif);font-weight:400;font-size:13.5px;color:rgba(14,31,43,.6);margin-top:2px}
+.voice{border-top:1.5px solid var(--ink);padding-top:20px}
+
+/* ---------- apply ---------- */
+.apply{background:var(--marigold);border-top:0}
+.apply .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.apply h2{font-size:clamp(28px,4vw,46px);max-width:24ch}
+.apply p{margin:14px 0 0;font-size:18px;max-width:46ch}
+@media(max-width:820px){.apply .wrap{grid-template-columns:1fr}}
+
+/* ---------- foot ---------- */
+.foot{background:var(--ink);color:rgba(237,240,242,.62);padding:44px 0;font-size:14.5px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--paper)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:20px;top:12px;z-index:60;background:var(--paper);color:var(--ink);padding:10px 16px}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="mark">Immersion<span>X</span></div>
+    <a class="lnk" href="#programs">Programs</a>
+    <a class="lnk" href="#roi">Return on fees</a>
+    <a class="lnk" href="#certificates">Certification</a>
+    <a class="lnk" href="#process">How it works</a>
+    <a class="btn" href="#apply">Start an application</a>
+  </div>
+</nav>
+
+<header class="hero" id="main">
+  <div class="wrap">
+    <div class="reveal">
+      <h1><span class="wk-cycle" id="heroWeek" data-cap="1">Two weeks</span> abroad that your <em>résumé</em> keeps earning from.</h1>
+      <p class="lede">Five immersion tracks, taught on campus with partner institutions and working practitioners. You leave with a certificate, a shipped project, and a cohort that answers your messages years later.</p>
+      <div class="cta-row">
+        <a class="btn gold" href="#apply">Start an application</a>
+        <a class="btn ghost" style="box-shadow:inset 0 0 0 1.5px rgba(237,240,242,.4);color:var(--paper)" href="#programs">See the five tracks</a>
+      </div>
+    </div>
+    <dl class="hero-panel reveal">
+      <dt>Programme fee</dt>
+      <dd>From ₹80,000<small>Excludes visa and flight tickets</small></dd>
+      <dt>Format</dt>
+      <dd>On campus<small>Plus pre-work and post-programme mentoring</small></dd>
+      <dt>Cohort size</dt>
+      <dd>Capped<small>Small enough that faculty learn your name</small></dd>
+    </dl>
+  </div>
+</header>
+
+<section class="sec" id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Five tracks, one departure board</h2>
+      <p>Each track is built around a real problem set rather than a syllabus. Pick the one closest to the work you want to be doing in two years — not the one closest to your degree.</p>
+    </div>
+
+    <div class="board">
+      <div class="row row-h">
+        <span>Track</span><span>Destination</span><span>Duration</span><span>Next cohort</span><span></span>
+      </div>
+
+      <div class="row">
+        <div class="pblock">
+          <div class="pname">AI in Medicine</div>
+          <p class="pdesc">Build and validate a diagnostic model on clinical data, with clinicians in the room.</p>
+        </div>
+        <div class="cell">Asian Institute of Technology<small>Thailand</small></div>
+        <div class="cell"><span class="wk-cycle">2 weeks</span><small>+ 4 weeks pre-work</small></div>
+        <div class="cell">Add date<small class="seats low">Filling</small></div>
+        <a class="btn" href="#apply">Apply</a>
+      </div>
+
+      <div class="row">
+        <div class="pblock">
+          <div class="pname">FinTech Immersion</div>
+          <p class="pdesc">Payments, lending and risk, taken apart by the people who run them.</p>
+        </div>
+        <div class="cell">Add campus<small>Add city</small></div>
+        <div class="cell"><span class="wk-cycle">2 weeks</span><small>+ 4 weeks pre-work</small></div>
+        <div class="cell">Add date<small class="seats">Open</small></div>
+        <a class="btn" href="#apply">Apply</a>
+      </div>
+
+      <div class="row">
+        <div class="pblock">
+          <div class="pname">Cyber Security</div>
+          <p class="pdesc">Live-range defence and incident response. Best after some systems or networking grounding.</p>
+        </div>
+        <div class="cell">Add campus<small>Add city</small></div>
+        <div class="cell"><span class="wk-cycle">2 weeks</span><small>+ 4 weeks pre-work</small></div>
+        <div class="cell">Add date<small class="seats">Open</small></div>
+        <a class="btn" href="#apply">Apply</a>
+      </div>
+
+      <div class="row">
+        <div class="pblock">
+          <div class="pname">Data Science</div>
+          <p class="pdesc">The widest-opening door of the five. The same toolkit underneath the other three tracks.</p>
+        </div>
+        <div class="cell">Add campus<small>Add city</small></div>
+        <div class="cell"><span class="wk-cycle">2 weeks</span><small>+ 4 weeks pre-work</small></div>
+        <div class="cell">Add date<small class="seats low">Filling</small></div>
+        <a class="btn" href="#apply">Apply</a>
+      </div>
+
+      <div class="row">
+        <div class="pblock">
+          <div class="pname">Leadership</div>
+          <p class="pdesc">Decision-making, negotiation and running teams. Strongest taken after a technical base.</p>
+        </div>
+        <div class="cell">Add campus<small>Add city</small></div>
+        <div class="cell"><span class="wk-cycle">2 weeks</span><small>+ 4 weeks pre-work</small></div>
+        <div class="cell">Add date<small class="seats">Open</small></div>
+        <a class="btn" href="#apply">Apply</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec roi" id="roi">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Work out your own payback</h2>
+      <p>We'd rather you did this arithmetic than took our word for it. Move the sliders to your situation and see how long the fee takes to come back.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-in">
+        <div class="field">
+          <label for="sal">Current monthly salary — <span class="val" id="salV">₹45,000</span></label>
+          <input type="range" id="sal" min="0" max="250000" step="5000" value="45000">
+          <span class="hint">Set this to zero if you're still studying.</span>
+        </div>
+        <div class="field">
+          <label for="up">Salary increase you're targeting — <span class="val" id="upV">25%</span></label>
+          <input type="range" id="up" min="0" max="100" step="5" value="25">
+          <span class="hint">Your own estimate, based on roles you've actually seen advertised.</span>
+        </div>
+        <div class="field">
+          <label for="fee">Programme fee — <span class="val" id="feeV">₹80,000</span></label>
+          <input type="range" id="fee" min="80000" max="200000" step="5000" value="80000">
+          <span class="hint">Starts from ₹80,000. Excludes visa and flight tickets.</span>
+        </div>
+      </div>
+
+      <div class="calc-out">
+        <div class="out-block">
+          <div class="out-lbl">Fee recovered in</div>
+          <div class="out-big" id="pay">7 months</div>
+        </div>
+        <div class="out-block">
+          <div class="out-lbl">Extra earnings, first three years</div>
+          <div class="out-mid" id="three">₹4,05,000</div>
+        </div>
+        <div class="out-block">
+          <div class="out-lbl">Monthly difference</div>
+          <div class="out-mid" id="mo">₹11,250</div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">This is a projection from the numbers you entered, not a forecast or a guarantee from ImmersionX. Salary outcomes depend on your background, the market, and your own effort. Travel, visa and living costs are not included in the fee.</p>
+
+    <div class="expert-note">
+      <p><strong>Not sure which track pays back fastest for you?</strong> Our admissions experts look at your background and goals and tell you which one or two immersions actually make sense — before you pay anything.</p>
+      <a class="btn gold" href="#apply">Talk to an expert</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="certificates">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Certification you can put a name to</h2>
+      <p>Every track ends in a certificate issued by the host institution, with the campus and contact hours stated on it — so a recruiter can verify what you actually did.</p>
+    </div>
+    <div class="certs">
+      <div class="cert">
+        <div class="inst">Asian Institute of Technology</div>
+        <p class="what">Certificate of completion for the AI in Medicine immersion, issued on campus.</p>
+        <div class="place">Bangkok, Thailand</div>
+      </div>
+      <div class="cert slot">
+        <div class="inst">Partner institution</div>
+        <p class="what">Replace with your FinTech host and the exact certificate wording they issue.</p>
+        <div class="place">Add location</div>
+      </div>
+      <div class="cert slot">
+        <div class="inst">Partner institution</div>
+        <p class="what">Replace with your Cyber Security host and the exact certificate wording they issue.</p>
+        <div class="place">Add location</div>
+      </div>
+      <div class="cert slot">
+        <div class="inst">Partner institution</div>
+        <p class="what">Replace with your Data Science and Leadership hosts.</p>
+        <div class="place">Add location</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>From application to certificate</h2>
+      <p>Four stages. You'll know where you stand at the end of each one.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div><h3>Apply and talk to an advisor</h3><p>A short form, then a conversation about whether the track you picked is the right one. We'll tell you if it isn't.</p></div>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div><h3>Pre-work, four weeks, online</h3><p>You arrive on campus already fluent in the basics, so the two weeks abroad are spent on the hard part.</p></div>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div><h3>Two weeks on campus</h3><p>Faculty sessions, site visits, and a project you present to practitioners on the final day.</p></div>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <div><h3>Certificate and mentoring</h3><p>Your certificate from the host institution, your project written up for your portfolio, and continued access to the cohort.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><h2>What alumni say</h2><p>Replace these with real quotes and consent before publishing.</p></div>
+    <div class="voices">
+      <div class="voice">
+        <blockquote>Placeholder quote — swap in a real alum's words about the project they built and where it took them.</blockquote>
+        <cite>Name<small>Track, cohort year — current role</small></cite>
+      </div>
+      <div class="voice">
+        <blockquote>Placeholder quote — a line about the cohort or the faculty works better here than praise for the programme.</blockquote>
+        <cite>Name<small>Track, cohort year — current role</small></cite>
+      </div>
+      <div class="voice">
+        <blockquote>Placeholder quote — one alum describing a concrete outcome is worth three describing a feeling.</blockquote>
+        <cite>Name<small>Track, cohort year — current role</small></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec apply" id="apply">
+  <div class="wrap">
+    <div>
+      <h2>Applications are open for the next cohorts.</h2>
+      <p>Tell us your background and what you want next. An advisor will come back to you with the one or two tracks that actually fit.</p>
+    </div>
+    <a class="btn" href="#apply">Start an application</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>ImmersionX — global experiential learning</div>
+    <div>
+      <a href="#programs">Programs</a> &nbsp;·&nbsp;
+      <a href="#roi">Return on fees</a> &nbsp;·&nbsp;
+      <a href="#apply">Apply</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var weekWordsCap=["One week","Two weeks","Three weeks","Four weeks"];
+  var weekWords=["1 week","2 weeks","3 weeks","4 weeks"];
+  var wkIdx=1; // starts on "Two weeks" / "2 weeks" to match the loaded page
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function cycleWeeks(){
+    var cycles=document.querySelectorAll('.wk-cycle');
+    cycles.forEach(function(el){ el.style.opacity=0; });
+    setTimeout(function(){
+      wkIdx=(wkIdx+1)%weekWords.length;
+      cycles.forEach(function(el){
+        el.textContent = el.dataset.cap==="1" ? weekWordsCap[wkIdx] : weekWords[wkIdx];
+        el.style.opacity=1;
+      });
+    },300);
+  }
+  if(!reduceMotion){ setInterval(cycleWeeks,2200); }
+})();
+
+(function(){
+  var sal=document.getElementById('sal'),up=document.getElementById('up'),fee=document.getElementById('fee');
+  var salV=document.getElementById('salV'),upV=document.getElementById('upV'),feeV=document.getElementById('feeV');
+  var pay=document.getElementById('pay'),three=document.getElementById('three'),mo=document.getElementById('mo');
+
+  function inr(n){
+    n=Math.round(n);
+    var s=String(n), last=s.slice(-3), rest=s.slice(0,-3);
+    if(rest) last=rest.replace(/\B(?=(\d{2})+(?!\d))/g,",")+","+last;
+    return "₹"+last;
+  }
+
+  function draw(){
+    var s=+sal.value, u=+up.value/100, f=+fee.value;
+    var delta=s*u;
+    salV.textContent=inr(s);
+    upV.textContent=up.value+"%";
+    feeV.textContent=inr(f);
+    mo.textContent=inr(delta);
+    three.textContent=inr(delta*36);
+    if(delta<=0){
+      pay.textContent="—";
+      mo.textContent=inr(0);
+      three.textContent=inr(0);
+    }else{
+      var m=Math.ceil(f/delta);
+      pay.textContent = m>60 ? "Over 5 years" : m+(m===1?" month":" months");
+    }
+  }
+  [sal,up,fee].forEach(function(el){el.addEventListener('input',draw)});
+  draw();
+})();
+</script>
+</body>
+</html>
