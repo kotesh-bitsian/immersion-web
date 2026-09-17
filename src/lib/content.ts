@@ -41,6 +41,24 @@ export const programs = [
 	}
 ] as const;
 
+export type ProgramName = (typeof programs)[number]['name'];
+
+export function programSlug(name: string): string {
+	return name
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-|-$/g, '');
+}
+
+export function findProgram(param: string | null): (typeof programs)[number] | null {
+	if (!param) return null;
+	const value = decodeURIComponent(param).trim();
+	return (
+		programs.find((program) => program.name === value || programSlug(program.name) === value) ??
+		null
+	);
+}
+
 export const certificates = [
 	{
 		institution: 'Asian Institute of Technology',

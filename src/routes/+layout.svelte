@@ -6,7 +6,6 @@
 </script>
 
 <svelte:head>
-	<title>ImmersionX — Global immersion programs</title>
 	<meta
 		name="description"
 		content="Five immersion tracks, taught on campus with partner institutions and working practitioners."
@@ -19,11 +18,12 @@
 <nav class="nav">
 	<div class="wrap">
 		<a class="mark" href="/">Immersion<span>X</span></a>
-		<a class="lnk" href="#programs">Programs</a>
-		<a class="lnk" href="#roi">Return on fees</a>
-		<a class="lnk" href="#certificates">Certification</a>
-		<a class="lnk" href="#process">How it works</a>
-		<a class="btn" href="#apply">Start an application</a>
+		<a class="lnk" href="/#programs">Programs</a>
+		<a class="lnk" href="/#roi">Return on fees</a>
+		<a class="lnk" href="/#certificates">Certification</a>
+		<a class="lnk" href="/#process">How it works</a>
+		<a class="lnk" href="/contact">Contact us</a>
+		<a class="btn" href="/apply">Start an application</a>
 	</div>
 </nav>
 
@@ -33,9 +33,10 @@
 	<div class="wrap">
 		<div>ImmersionX — global experiential learning</div>
 		<div>
-			<a href="#programs">Programs</a> &nbsp;·&nbsp;
-			<a href="#roi">Return on fees</a> &nbsp;·&nbsp;
-			<a href="#apply">Apply</a>
+			<a href="/#programs">Programs</a> &nbsp;·&nbsp;
+			<a href="/#roi">Return on fees</a> &nbsp;·&nbsp;
+			<a href="/apply">Apply</a> &nbsp;·&nbsp;
+			<a href="/contact">Contact us</a>
 		</div>
 	</div>
 </footer>

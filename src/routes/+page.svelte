@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import RoiCalculator from '$lib/components/RoiCalculator.svelte';
-	import { certificates, programs, steps, voices, weekWords, weekWordsCap } from '$lib/content';
+	import { certificates, programSlug, programs, steps, weekWords, weekWordsCap } from '$lib/content';
 
 	let weekIndex = $state(1);
 	let fading = $state(false);
@@ -22,6 +22,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>ImmersionX — Global immersion programs</title>
+</svelte:head>
+
 <header class="hero" id="main">
 	<div class="wrap">
 		<div class="reveal">
@@ -35,7 +39,7 @@
 				years later.
 			</p>
 			<div class="cta-row">
-				<a class="btn gold" href="#apply">Start an application</a>
+				<a class="btn gold" href="/apply">Start an application</a>
 				<a
 					class="btn ghost"
 					style="box-shadow:inset 0 0 0 1.5px rgba(237,240,242,.4);color:var(--paper)"
@@ -83,7 +87,7 @@
 						>
 					</div>
 					<div class="cell">Add date<small class="seats" class:low={program.seatsLow}>{program.seats}</small></div>
-					<a class="btn" href="#apply">Apply</a>
+					<a class="btn" href="/apply?program={programSlug(program.name)}">Apply</a>
 				</div>
 			{/each}
 		</div>
@@ -113,7 +117,7 @@
 				at your background and goals and tell you which one or two immersions actually make sense —
 				before you pay anything.
 			</p>
-			<a class="btn gold" href="#apply">Talk to an expert</a>
+			<a class="btn gold" href="/contact">Contact us</a>
 		</div>
 	</div>
 </section>
@@ -159,23 +163,6 @@
 	</div>
 </section>
 
-<section class="sec">
-	<div class="wrap">
-		<div class="sec-head">
-			<h2>What alumni say</h2>
-			<p>Replace these with real quotes and consent before publishing.</p>
-		</div>
-		<div class="voices">
-			{#each voices as voice, i (i)}
-				<div class="voice">
-					<blockquote>{voice.quote}</blockquote>
-					<cite>{voice.name}<small>{voice.meta}</small></cite>
-				</div>
-			{/each}
-		</div>
-	</div>
-</section>
-
 <section class="sec apply" id="apply">
 	<div class="wrap">
 		<div>
@@ -185,6 +172,6 @@
 				or two tracks that actually fit.
 			</p>
 		</div>
-		<a class="btn" href="#apply">Start an application</a>
+		<a class="btn" href="/apply">Start an application</a>
 	</div>
 </section>
