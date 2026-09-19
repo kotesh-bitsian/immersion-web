@@ -92,18 +92,18 @@ export const steps = [
 		title: 'Apply and talk to an advisor',
 		body: "A short form, then a conversation about whether the track you picked is the right one. We'll tell you if it isn't."
 	},
+	//{
+	//	n: '02',
+	//	title: 'Pre-work, four weeks, online',
+	//	body: 'You arrive on campus already fluent in the basics, so the two weeks abroad are spent on the hard part.'
+	//},
 	{
 		n: '02',
-		title: 'Pre-work, four weeks, online',
-		body: 'You arrive on campus already fluent in the basics, so the two weeks abroad are spent on the hard part.'
-	},
-	{
-		n: '03',
 		title: 'Two weeks on campus',
 		body: 'Faculty sessions, site visits, and a project you present to practitioners on the final day.'
 	},
 	{
-		n: '04',
+		n: '03',
 		title: 'Certificate and mentoring',
 		body: 'Your certificate from the host institution, your project written up for your portfolio, and continued access to the cohort.'
 	}
