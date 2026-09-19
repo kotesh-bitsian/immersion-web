@@ -147,7 +147,7 @@
 	<div class="wrap">
 		<div class="sec-head">
 			<h2>From application to certificate</h2>
-			<p>Four stages. You'll know where you stand at the end of each one.</p>
+			<p>Three stages. You'll know where you stand at the end of each one.</p>
 		</div>
 		<div class="steps">
 			{#each steps as step (step.n)}
