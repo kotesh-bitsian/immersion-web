@@ -35,7 +35,7 @@
 		<div>
 			<a href="/#programs">Programs</a> &nbsp;·&nbsp;
 			<a href="/#roi">Return on fees</a> &nbsp;·&nbsp;
-			<a href="/apply">Apply</a> &nbsp;·&nbsp;
+			<a href="/apply">Express interest</a> &nbsp;·&nbsp;
 			<a href="/contact">Contact us</a>
 		</div>
 	</div>
