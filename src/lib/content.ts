@@ -28,8 +28,8 @@ export const programs = [
 		description: 'The widest-opening door of the five. The same toolkit underneath the other three tracks.',
 		campus: 'Add campus',
 		city: 'Add city',
-		seats: 'Filling',
-		seatsLow: true
+		seats: 'Open',
+		seatsLow: false
 	},
 	{
 		name: 'Leadership',
@@ -67,10 +67,10 @@ export const certificates = [
 		slot: false
 	},
 	{
-		institution: 'Partner institution',
-		what: 'Replace with your FinTech host and the exact certificate wording they issue.',
-		place: 'Add location',
-		slot: true
+		institution: 'Georgian National University SEU',
+		what: 'Certificate of completion for the AI immersion program, issued on campus.',
+		place: 'Tbilisi, Georgia',
+		slot: false
 	},
 	{
 		institution: 'Partner institution',
@@ -99,12 +99,12 @@ export const steps = [
 	//},
 	{
 		n: '02',
-		title: 'Two weeks on campus',
+		title: 'Campus Immersion — One, Two, Three Weeks',
 		body: 'Faculty sessions, site visits, and a project you present to practitioners on the final day.'
 	},
 	{
 		n: '03',
-		title: 'Certificate and mentoring',
+		title: 'Certificate and Networking',
 		body: 'Your certificate from the host institution, your project written up for your portfolio, and continued access to the cohort.'
 	}
 ] as const;
@@ -130,5 +130,5 @@ export const voices = [
 	}
 ] as const;
 
-export const weekWordsCap = ['One week', 'Two weeks', 'Three weeks', 'Four weeks'] as const;
-export const weekWords = ['1 week', '2 weeks', '3 weeks', '4 weeks'] as const;
+export const weekWordsCap = ['One week', 'Two weeks', 'Three weeks'] as const;
+export const weekWords = ['1 week', '2 weeks', '3 weeks'] as const;
