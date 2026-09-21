@@ -87,7 +87,7 @@
 						>
 					</div>
 					<div class="cell">Add date<small class="seats" class:low={program.seatsLow}>{program.seats}</small></div>
-					<a class="btn" href="/apply?program={programSlug(program.name)}">Apply</a>
+					<a class="btn" href="/apply?program={programSlug(program.name)}">Express Interest</a>
 				</div>
 			{/each}
 		</div>
