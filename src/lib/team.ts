@@ -20,6 +20,6 @@ export const team = {
 		initials: 'WP',
 		role: 'Advisor',
 		tag: '4x Entrepreneur',
-		bio: 'IIM Calcutta alumnus.\n\nA four-time entrepreneur with deep experience building startups, he advises ImmersionX on how the programmes are shaped — and whether a track is actually worth a student's time and money.'
+		bio: "IIM Calcutta alumnus.\n\nA four-time entrepreneur with deep experience building startups, he advises ImmersionX on how the programmes are shaped — and whether a track is actually worth a student's time and money."
 	}
 } as const;
