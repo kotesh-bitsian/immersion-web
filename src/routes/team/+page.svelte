@@ -24,7 +24,7 @@
 <section class="sec team-sec">
 	<div class="wrap">
 		<div class="sec-head">
-			<h2>Co-founders</h2>
+			<h2>Team</h2>
 		</div>
 
 		<div class="team-grid">
