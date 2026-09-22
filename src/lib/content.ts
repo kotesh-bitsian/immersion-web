@@ -10,10 +10,10 @@ export const programs = [
 	{
 		name: 'FinTech Immersion',
 		description: 'Payments, lending and risk, taken apart by the people who run them.',
-		campus: 'Add campus',
-		city: 'Add city',
-		seats: 'Open',
-		seatsLow: false
+		campus: 'Georgian National University SEU',
+		city: 'Tbilisi, Georgia',
+		seats: 'Filling',
+		seatsLow: true
 	},
 	{
 		name: 'Cyber Security',
