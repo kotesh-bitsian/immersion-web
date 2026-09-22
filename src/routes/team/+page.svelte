@@ -25,7 +25,6 @@
 	<div class="wrap">
 		<div class="sec-head">
 			<h2>Co-founders</h2>
-			<p>They started ImmersionX. They still write the copy, pick the partners, and take the calls.</p>
 		</div>
 
 		<div class="team-grid">
