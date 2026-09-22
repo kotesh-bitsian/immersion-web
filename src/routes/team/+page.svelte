@@ -15,9 +15,8 @@
 		<p class="team-kicker">The people</p>
 		<h1>A small team. Named, reachable, and in the room.</h1>
 		<p class="lede">
-			ImmersionX is built by two co-founders who have shipped software and companies, with an
-			advisor who will tell them when a track does not earn its fee. You should know who that is
-			before you apply.
+			ImmersionX is built by two co-founders with immense experience and passion, backed by an
+			advisor with a strong entrepreneurial background.
 		</p>
 	</div>
 </header>
