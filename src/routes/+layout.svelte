@@ -22,8 +22,9 @@
 		<a class="lnk" href="/#roi">Return on fees</a>
 		<a class="lnk" href="/#certificates">Certification</a>
 		<a class="lnk" href="/#process">How it works</a>
+		<a class="lnk" href="/team">Team</a>
 		<a class="lnk" href="/contact">Contact us</a>
-		<a class="btn" href="/apply">Start an application</a>
+		<a class="btn" href="/apply">Express Interest</a>
 	</div>
 </nav>
 
@@ -35,7 +36,8 @@
 		<div>
 			<a href="/#programs">Programs</a> &nbsp;·&nbsp;
 			<a href="/#roi">Return on fees</a> &nbsp;·&nbsp;
-			<a href="/apply">Express interest</a> &nbsp;·&nbsp;
+			<a href="/team">Team</a> &nbsp;·&nbsp;
+			<a href="/apply">Express Interest</a> &nbsp;·&nbsp;
 			<a href="/contact">Contact us</a>
 		</div>
 	</div>

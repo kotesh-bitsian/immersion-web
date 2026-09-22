@@ -39,7 +39,7 @@
 				years later.
 			</p>
 			<div class="cta-row">
-				<a class="btn gold" href="/apply">Start an application</a>
+				<a class="btn gold" href="/apply">Express Interest</a>
 				<a
 					class="btn ghost"
 					style="box-shadow:inset 0 0 0 1.5px rgba(237,240,242,.4);color:var(--paper)"
@@ -82,9 +82,7 @@
 					</div>
 					<div class="cell">{program.campus}<small>{program.city}</small></div>
 					<div class="cell">
-						<span class="wk-cycle" class:is-fading={fading}>{weekWords[weekIndex]}</span><small
-							>+ 4 weeks pre-work</small
-						>
+						<span class="wk-cycle" class:is-fading={fading}>{weekWords[weekIndex]}</span>
 					</div>
 					<div class="cell">Add date<small class="seats" class:low={program.seatsLow}>{program.seats}</small></div>
 					<a class="btn" href="/apply?program={programSlug(program.name)}">Express Interest</a>
@@ -172,6 +170,6 @@
 				or two tracks that actually fit.
 			</p>
 		</div>
-		<a class="btn" href="/apply">Start an application</a>
+		<a class="btn" href="/apply">Express Interest</a>
 	</div>
 </section>
