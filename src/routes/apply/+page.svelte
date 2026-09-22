@@ -24,13 +24,13 @@
 </script>
 
 <svelte:head>
-	<title>Start an application — ImmersionX</title>
+	<title>Express Interest — ImmersionX</title>
 </svelte:head>
 
 <section class="page" id="main">
 	<div class="wrap form-wrap">
 		<div class="sec-head">
-			<h1>Start an application</h1>
+			<h1>Express Interest</h1>
 			<p>
 				{#if lockedProgram}
 					You're applying for <strong>{lockedProgram}</strong>. All fields are required — an advisor
@@ -199,7 +199,7 @@
 				</div>
 
 				<button class="btn" type="submit" disabled={submitting}>
-					{submitting ? 'Sending…' : 'Submit application'}
+					{submitting ? 'Sending…' : 'Submit'}
 				</button>
 			</form>
 		{/if}
