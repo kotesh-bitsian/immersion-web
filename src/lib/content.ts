@@ -24,7 +24,7 @@ export const programs = [
 		seatsLow: false
 	},
 	{
-		name: 'Data Science',
+		name: 'AI Immersion',
 		description: 'The widest-opening door of the five. The same toolkit underneath the other three tracks.',
 		campus: 'Add campus',
 		city: 'Add city',
